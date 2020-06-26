@@ -257,6 +257,16 @@ Fetches the widget for the bot. The widget is an image. Does not require authori
 
 ---
 
+### `await blist.Blist.close()`
+
+*This method is a coroutine.*
+
+Disallows the `blist.Blist` instance from being used to make anymore requests to the API.
+
+**Note:** You must run this when stopping your bot.
+
+---
+
 ### `blist.WebhookServer(blist, port=8000)`
 
 Server for receiving upvote events and dispatching them.
@@ -283,7 +293,7 @@ Server for receiving upvote events and dispatching them.
 
 Starts the webhook server and allows it to serve requests.
 
-**Note:** You do not need to run this method in a task, everything is done for you.
+**Note:** You do not need to run this method in a task, everything is handled for you.
 
 ---
 
@@ -292,3 +302,5 @@ Starts the webhook server and allows it to serve requests.
 *This method is a coroutine.*
 
 Stops the webhook server and disallows it from serving requests.
+
+**Note:** You must run this when stopping your bot if the server is currently running.
