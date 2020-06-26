@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.md") as readme:
-    description = readme.read()
+with open("PIP_README.md", encoding="utf-8") as pip_readme:
+    description = pip_readme.read()
 
 setuptools.setup(
     name="blistpy",
-    version="0.0.1",
+    version="0.0.2",
     author="Joshua Patel",
     description="Python API wrapper for the Blist Discord bot list",
     long_description=description,
