@@ -5,12 +5,12 @@ with open("PIP_README.md", encoding="utf-8") as pip_readme:
 
 setuptools.setup(
     name="blistpy",
-    version="0.0.2",
+    version="0.0.3",
     author="Joshua Patel",
     description="Python API wrapper for the Blist Discord bot list",
     long_description=description,
     long_description_content_type="text/markdown",
-    url="https://github.com/joshuapatel/blist-wrapper",
+    url="https://github.com/BlistBotList/blist-wrapper",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
