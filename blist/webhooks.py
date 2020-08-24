@@ -27,7 +27,7 @@ class WebhookServer:
     async def run(self):
         self._runner = web.AppRunner(self._app)
         await self._runner.setup()
-        site = web.TCPSite(self._runner, "localhost", self.port)
+        site = web.TCPSite(self._runner, "0.0.0.0", self.port)
         await site.start()
 
     async def close(self):
