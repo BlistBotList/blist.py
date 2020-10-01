@@ -1,6 +1,7 @@
 import typing
 import datetime
 
+
 class Bot:
     def __init__(self, **kwargs):
         self.id: int = kwargs.get("id")
@@ -28,6 +29,7 @@ class Bot:
     def __repr__(self):
         return f"<{self.__class__.__name__} id={self.id} name='{self.name}' prefix='{self.prefix}' library='{self.library}'>"
 
+
 class User:
     def __init__(self, **kwargs):
         self.id: int = kwargs.get("id")
@@ -45,6 +47,7 @@ class User:
     def __repr__(self):
         return f"<{self.__class__.__name__} id={self.id} bio='{self.bio}' staff={self.staff} bots={self.bots}>"
 
+
 class Vote:
     def __init__(self, **kwargs):
         self.userid: int = kwargs.get("userid")
@@ -52,6 +55,7 @@ class Vote:
 
     def __repr__(self):
         return f"<{self.__class__.__name__} userid={self.userid} time={self.time}>"
+
 
 class Votes:
     def __init__(self, **kwargs):
