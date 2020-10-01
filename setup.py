@@ -24,6 +24,11 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Utilities"
     ],
+    project_urls = {
+        "Source": "https://github.com/BlistBotList/blist-wrapper",
+        "Documentation": "https://github.com/BlistBotList/blist-wrapper/blob/master/README.md",
+        "Issue tracker": "https://github.com/BlistBotList/blist-wrapper/issues",
+    },
     keywords="discord discordapp bot blist botlist list blistpy",
     install_requires=["aiohttp"],
     python_requires=">=3.5.3"
