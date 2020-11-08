@@ -137,7 +137,7 @@ Fetches information about a bot. Does not require authorization.
 |add_date|`datetime.datetime`|The date the bot was added to the Blist website|
 |invites|`int`|Amount of times the bot has been invited from the Blist website|
 |page_views|`int`|Amount of views the bot's page has received|
-|donate_url|`str`||Link to the bot's donate page|
+|donate_url|`str`|Link to the bot's donate page|
 |avatar_hash|`str`|The bot's avatar hash|
 |privacy_policy_url|`str`|Link to the bot's privacy policy URL|
 |status|`str`|The bot's current status|

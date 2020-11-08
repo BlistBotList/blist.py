@@ -6,3 +6,4 @@ blistpy_adiscorduser.egg-info/
 blistpy.egg-info/
 build/
 dist/
+.idea/
