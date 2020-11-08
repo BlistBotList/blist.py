@@ -126,8 +126,8 @@ Fetches information about a bot. Does not require authorization.
 |long_description|`str`|Long description of the bot|
 |prefix|`str`|The bot's prefix|
 |invite_url|`str`|Link to the invite URL of the bot|
-|support_server|`str`|Bot support guild invite code|
-|tags|List[`str`]|List of bot tags on the Blist website|
+|support_server|`str`|Bot's support guild code slug|
+|tags|List[`str`]|List of the bot's tag on the Blist website|
 |monthly_votes|`int`|Amount of votes the bot has gotten within a month|
 |total_votes|`int`|Amount of votes the bot has gotten in all time|
 |certified|`bool`|Whether the bot is certified on the Blist website|
@@ -136,9 +136,9 @@ Fetches information about a bot. Does not require authorization.
 |shard_count|`int`|Amount of shards the bot is using|
 |add_date|`datetime.datetime`|The date the bot was added to the Blist website|
 |invites|`int`|Amount of times the bot has been invited from the Blist website|
-|page_views|`int`|Amount of views the bot page has received|
+|page_views|`int`|Amount of views the bot's page has received|
 |donate_url|`str`||Link to the bot's donate page|
-|avatar_hash|`str`|The bot avatar hash|
+|avatar_hash|`str`|The bot's avatar hash|
 |privacy_policy_url|`str`|Link to the bot's privacy policy URL|
 |status|`str`|The bot's current status|
 
