@@ -11,6 +11,7 @@ class Bot:
         self.website: str = kwargs.get("website")
         self.github: str = kwargs.get("github")
         self.short_description: str = kwargs.get("short_description")
+        self.long_description: str = kwargs.get("long_description")
         self.prefix: str = kwargs.get("prefix")
         self.invite_url: str = kwargs.get("invite_url")
         self.support_server: str = kwargs.get("support_server")
@@ -21,9 +22,13 @@ class Bot:
         self.vanity_url: str = kwargs.get("vanity_url")
         self.server_count: int = kwargs.get("server_count")
         self.shard_count: int = kwargs.get("shard_count")
-        self.add_date: datetime.datetime = datetime.datetime.fromtimestamp(kwargs.get("add_date"))
+        self.joined: datetime.datetime = datetime.datetime.fromisoformat(kwargs.get("joined").strip("Z"))
         self.invites: int = kwargs.get("invites")
         self.page_views: int = kwargs.get("page_views")
+        self.donate_url: str = kwargs.get("donate_url")
+        self.avatar_hash: str = kwargs.get("avatar_hash")
+        self.privacy_policy_url: str = kwargs.get("privacy_policy_url")
+        self.status: str = kwargs.get("status")
 
     def __repr__(self):
         return f"<{self.__class__.__name__} id={self.id} name='{self.name}' prefix='{self.prefix}' library='{self.library}'>"

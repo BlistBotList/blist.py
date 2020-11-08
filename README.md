@@ -123,6 +123,7 @@ Fetches information about a bot. Does not require authorization.
 |website|`str`|Link to the bot's website|
 |github|`str`|Link to the bot's GitHub repository|
 |short_description|`str`|Short description of the bot|
+|long_description|`str`|Long description of the bot|
 |prefix|`str`|The bot's prefix|
 |invite_url|`str`|Link to the invite URL of the bot|
 |support_server|`str`|Bot support guild invite code|
@@ -133,9 +134,13 @@ Fetches information about a bot. Does not require authorization.
 |vanity_url|`str`|The vanity URL to the bot on the Blist website|
 |server_count|`int`|Amount of guilds the bot is in|
 |shard_count|`int`|Amount of shards the bot is using|
-|add_date|`datetime.datetime`|The date the bot was added to the Blist website|
+|joined|`datetime.datetime`|The date the bot was added to the Blist website|
 |invites|`int`|Amount of times the bot has been invited from the Blist website|
 |page_views|`int`|Amount of views the bot page has received|
+|donate_url|`str`|Link to donate|
+|avatar_hash|`str`|The bot's avatar's hash|
+|privacy_policy_url|`str`|Link to bot's privacy url|
+|status|`str`|The bot's current status.|
 
 **Return Type**
 
