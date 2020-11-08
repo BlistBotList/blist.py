@@ -126,7 +126,7 @@ Fetches information about a bot. Does not require authorization.
 |long_description|`str`|Long description of the bot|
 |prefix|`str`|The bot's prefix|
 |invite_url|`str`|Link to the invite URL of the bot|
-|support_server|`str`|Bot's support guild code slug|
+|support_server|`str`|The bot's support guild invite code|
 |tags|List[`str`]|List of the bot's tag on the Blist website|
 |monthly_votes|`int`|Amount of votes the bot has gotten within a month|
 |total_votes|`int`|Amount of votes the bot has gotten in all time|
