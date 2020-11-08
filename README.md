@@ -134,7 +134,7 @@ Fetches information about a bot. Does not require authorization.
 |vanity_url|`str`|The vanity URL to the bot on the Blist website|
 |server_count|`int`|Amount of guilds the bot is in|
 |shard_count|`int`|Amount of shards the bot is using|
-|joined|`datetime.datetime`|The date the bot was added to the Blist website|
+|add_date|`datetime.datetime`|The date the bot was added to the Blist website|
 |invites|`int`|Amount of times the bot has been invited from the Blist website|
 |page_views|`int`|Amount of views the bot page has received|
 |donate_url|`str`||Link to the bot's donate page|
