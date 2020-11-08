@@ -22,7 +22,7 @@ class Bot:
         self.vanity_url: str = kwargs.get("vanity_url")
         self.server_count: int = kwargs.get("server_count")
         self.shard_count: int = kwargs.get("shard_count")
-        self.joined: datetime.datetime = datetime.datetime.fromisoformat(kwargs.get("joined").strip("Z"))
+        self.add_date: datetime.datetime = datetime.datetime.fromisoformat(kwargs.get("joined").strip("Z"))
         self.invites: int = kwargs.get("invites")
         self.page_views: int = kwargs.get("page_views")
         self.donate_url: str = kwargs.get("donate_url")
