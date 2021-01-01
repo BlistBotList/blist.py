@@ -25,10 +25,16 @@ class WebhookServer:
         return web.Response(status=204)
 
     async def run(self):
+        print("Webhook server has been removed from Blist.xyz until further notice.")
+        return
+
         self._runner = web.AppRunner(self._app)
         await self._runner.setup()
         site = web.TCPSite(self._runner, "0.0.0.0", self.port)
         await site.start()
 
     async def close(self):
+        print("Webhook server has been removed from Blist.xyz until further notice.")
+        return
+
         await self._runner.cleanup()

@@ -1,10 +1,11 @@
 import typing
 import datetime
+from dateutil import parser
 
 class Bot:
     def __init__(self, **kwargs):
-        self.id: int = kwargs.get("id")
         self.name: str = kwargs.get("name")
+        self.id: int = kwargs.get("id")
         self.main_owner: int = kwargs.get("main_owner")
         self.owners: str = kwargs.get("owners")
         self.library: str = kwargs.get("library")
@@ -22,47 +23,71 @@ class Bot:
         self.vanity_url: str = kwargs.get("vanity_url")
         self.server_count: int = kwargs.get("server_count")
         self.shard_count: int = kwargs.get("shard_count")
-        self.add_date: datetime.datetime = datetime.datetime.fromisoformat(kwargs.get("joined").strip("Z"))
+        self.add_date: datetime.datetime = parser.parse(kwargs.get("joined"))
         self.invites: int = kwargs.get("invites")
         self.page_views: int = kwargs.get("page_views")
         self.donate_url: str = kwargs.get("donate_url")
         self.avatar_hash: str = kwargs.get("avatar_hash")
         self.privacy_policy_url: str = kwargs.get("privacy_policy_url")
         self.status: str = kwargs.get("status")
+        self.staff: bool = kwargs.get("staff")
+        self.premium: bool = kwargs.get("premium")
 
     def __repr__(self):
         return f"<{self.__class__.__name__} id={self.id} name='{self.name}' prefix='{self.prefix}' library='{self.library}'>"
 
 class User:
     def __init__(self, **kwargs):
-        self.id: int = kwargs.get("id")
+        self.userid: int = kwargs.get("userid")
+        self.name: str = kwargs.get("name")
+        self.discriminator: int = kwargs.get("discriminator")
         self.bio: str = kwargs.get("bio")
         self.staff: bool = kwargs.get("staff")
-        self.joined_at: datetime.datetime = datetime.datetime.fromtimestamp(kwargs.get("joined_at"))
+        self.administrator: bool = kwargs.get("administrator")
+        self.developer: bool = kwargs.get("developer")
+        self.certified_developer: bool = kwargs.get("certified_developer")
+        self.joined_at: datetime.datetime = parser.parse(kwargs.get("joined"))
         self.reddit: str = kwargs.get("reddit")
         self.snapchat: str = kwargs.get("snapchat")
         self.instagram: str = kwargs.get("instagram")
         self.twitter: str = kwargs.get("twitter")
         self.github: str = kwargs.get("github")
         self.website: str = kwargs.get("website")
-        self.bots: int = kwargs.get("bots")
+        self.bug_hunter: bool = kwargs.get("bug_hunter")
+        self.blacklisted: bool = kwargs.get("blacklisted")
+        self.premium: bool = kwargs.get("premium")
+        self.vanity_url: str = kwargs.get("vanity_url")
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} id={self.id} bio='{self.bio}' staff={self.staff} bots={self.bots}>"
+        return f"<{self.__class__.__name__} id={self.id} discriminator='{self.discriminator}' bio='{self.bio}' staff={self.staff}>"
 
 class Vote:
     def __init__(self, **kwargs):
-        self.userid: int = kwargs.get("userid")
-        self.time: datetime.datetime = datetime.datetime.fromtimestamp(kwargs.get("time"))
+        self.user: int = kwargs.get("user")
+        self.time: datetime.datetime = parser.parse(kwargs.get("time"))
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} userid={self.userid} time={self.time}>"
+        return f"<{self.__class__.__name__} user={self.user} time={self.time}>"
 
 class Votes:
     def __init__(self, **kwargs):
-        self.monthly: int = kwargs.get("monthly")
-        self.total: int = kwargs.get("total")
         self.votes: typing.List[Vote] = [Vote(**vote) for vote in kwargs.get("votes")]
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} monthly={self.monthly} total={self.total} votes={self.votes}>"
+        return f"<{self.__class__.__name__} votes={self.votes}>"
+
+class Review:
+    def __init__(self, **kwargs):
+        self.feedback: str = kwargs.get("feedback")
+        self.recomended: bool = kwargs.get("recomended")
+        self.time: datetime.datetime = parser.parse(kwargs.get("time"))
+
+    def __repr__(self):
+        return f"<{self.__class__.__name__} feedback={self.feedback} recomended={self.recomended}>"
+
+class Reviews:
+    def __init__(self, **kwargs):
+        self.reviews: typing.List[Review] = [Review(**review) for review in kwargs.get("reviews")]
+
+    def __repr__(self):
+        return f"<{self.__class__.__name__} reviews={self.reviews}>"
