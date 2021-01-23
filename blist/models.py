@@ -79,7 +79,7 @@ class Votes:
 class Review:
     def __init__(self, **kwargs):
         self.feedback: str = kwargs.get("feedback")
-        self.recommended: bool = kwargs.get("recommended")
+        self.recommended: bool = kwargs.get("recomended")
         # legacy support for applications currently using the misspelled word
         # present in one version
         self.recomended: bool = self.recommended
