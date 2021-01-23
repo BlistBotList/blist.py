@@ -255,14 +255,14 @@ Fetches the reviews a bot has recieved. Requires authorization.
 
 |Attribute|Type|Description|
 |---|---|---|
-|reviews|List[`blist.models.Review`]|List of reviews on the bot. Contains the feedback, whether it is recomended and the time|
+|reviews|List[`blist.models.Review`]|List of reviews on the bot. Contains the feedback, whether it is recommended and the time|
 
 **`blist.models.Review`**
 
 |Attribute|Type|Description|
 |---|---|---|
 |feedback|`str`|The way the reviewing user felt about the bot|
-|recomended|`bool`|Whether the reviewing user recomends the bot to other users|
+|recommended|`bool`|Whether the reviewing user recommends the bot to other users|
 |time|`datetime.datetime`|The timestamp of when the user left the review|
 
 **Return Type**
@@ -283,7 +283,7 @@ Disallows the `blist.Blist` instance from being used to make anymore requests to
 
 ### `blist.WebhookServer(blist, port=8000)`
 
-*This method has been disabled ufn*
+*This method has been disabled until further notice.*
 
 Server for receiving upvote events and dispatching them.
 
@@ -305,7 +305,7 @@ Server for receiving upvote events and dispatching them.
 
 ### `await blist.WebhookServer.run()`
 
-*This method has been disabled ufn*
+*This method has been disabled until further notice.*
 
 *This method is a coroutine.*
 
@@ -317,7 +317,7 @@ Starts the webhook server and allows it to serve requests.
 
 ### `await blist.WebhookServer.close()`
 
-*This method has been disabled ufn*
+*This method has been disabled until further notice.*
 
 *This method is a coroutine.*
 
