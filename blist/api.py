@@ -101,9 +101,8 @@ class Blist:
 
         response = await self._session.get(f"{self.BASE_URL}/bot/{self.bot.user.id}/reviews/", headers=headers)
         json = await response.json()
-        
+
         if response.status == 200:
-            print(json)
             return models.Reviews(**json)
 
         if response.status == 403:

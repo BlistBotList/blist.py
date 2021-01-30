@@ -79,11 +79,14 @@ class Votes:
 class Review:
     def __init__(self, **kwargs):
         self.feedback: str = kwargs.get("feedback")
-        self.recomended: bool = kwargs.get("recomended")
+        self.recommended: bool = kwargs.get("recomended")
+        # legacy support for applications currently using the misspelled word
+        # present in one version
+        self.recomended: bool = self.recommended
         self.time: datetime.datetime = parser.parse(kwargs.get("time"))
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} feedback={self.feedback} recomended={self.recomended}>"
+        return f"<{self.__class__.__name__} feedback={self.feedback} recommended={self.recommended}>"
 
 class Reviews:
     def __init__(self, **kwargs):
