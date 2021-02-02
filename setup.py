@@ -30,6 +30,6 @@ setuptools.setup(
         "Issue tracker": "https://github.com/BlistBotList/blist.py/issues",
     },
     keywords="discord discordapp bot blist botlist list blistpy",
-    install_requires=["aiohttp", "parser"],
+    install_requires=["aiohttp", "dateutil"],
     python_requires=">=3.5.3"
 )
