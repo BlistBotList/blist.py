@@ -39,11 +39,12 @@ class Blist:
         }
 
         response = await self._session.patch(f"{self.BASE_URL}/bot/{self.bot.user.id}/stats/", headers=headers, json=payload)
-        json = await response.json()
 
         if response.status == 204:
             return
-
+        
+        json = await response.json()
+        
         if response.status == 400:
             raise errors.InvalidData(json.get("detail"))
         elif response.status == 403:
