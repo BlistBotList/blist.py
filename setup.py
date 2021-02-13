@@ -5,8 +5,8 @@ with open("PIP_README.md", encoding="utf-8") as pip_readme:
 
 setuptools.setup(
     name="blistpy",
-    version="0.1.1",
-    author="Joshua Patel & Gavyn Stanley",
+    version="0.1.2",
+    author="A Discord User & A Trash Coder",
     description="Python API wrapper for the Blist Discord bot list",
     long_description=description,
     long_description_content_type="text/markdown",
