@@ -33,6 +33,7 @@ class Bot:
         self.status: str = kwargs.get("status")
         self.staff: bool = kwargs.get("staff")
         self.premium: bool = kwargs.get("premium")
+        self.uses_slash_commands: bool = kwargs.get("uses_slash_commands")
 
     def __repr__(self):
         return f"<{self.__class__.__name__} id={self.id} name='{self.name}' discriminator='{self.discriminator}' prefix='{self.prefix}' library='{self.library}'>"
