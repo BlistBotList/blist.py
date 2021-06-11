@@ -5,12 +5,12 @@ with open("PIP_README.md", encoding="utf-8") as pip_readme:
 
 setuptools.setup(
     name="blistpy",
-    version="0.0.3",
-    author="Joshua Patel",
+    version="0.1.2",
+    author="A Discord User & A Trash Coder",
     description="Python API wrapper for the Blist Discord bot list",
     long_description=description,
     long_description_content_type="text/markdown",
-    url="https://github.com/BlistBotList/blist-wrapper",
+    url="https://github.com/BlistBotList/blist.py",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -25,11 +25,11 @@ setuptools.setup(
         "Topic :: Utilities"
     ],
     project_urls = {
-        "Source": "https://github.com/BlistBotList/blist-wrapper",
-        "Documentation": "https://github.com/BlistBotList/blist-wrapper/blob/master/README.md",
-        "Issue tracker": "https://github.com/BlistBotList/blist-wrapper/issues"
+        "Source": "https://github.com/BlistBotList/blist.py",
+        "Documentation": "https://github.com/BlistBotList/blist.py/blob/master/README.md",
+        "Issue tracker": "https://github.com/BlistBotList/blist.py/issues",
     },
     keywords="discord discordapp bot blist botlist list blistpy",
-    install_requires=["aiohttp"],
+    install_requires=["aiohttp", "python-dateutil"],
     python_requires=">=3.5.3"
 )

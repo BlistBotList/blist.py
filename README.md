@@ -237,28 +237,37 @@ Fetches monthly and total votes. This also returns users who have voted for your
 
 ---
 
-### `await blist.Blist.fetch_bot_widget(bot_id=None, widget_type="normal")`
+### `await blist.Blist.fetch_bot_reviews()`
 
 *This method is a coroutine.*
 
-Fetches the widget for the bot. The widget is an image. Does not require authorization.
-
-**Parameters**
-
-+ **bot_id** (Optional[`int`]) — The ID of the bot to fetch the widget for. Defaults to the current bot.
-+ **widget_type** (Optional[`str`]) — Type of widget to fetch. Currently, `normal` is the only widget type.
+Fetches the reviews a bot has recieved. Requires authorization.
 
 **Raises**
+
+`blist.errors.InvalidAuthorization` — Invalid token provided or you did not specify a token.
 
 `blist.errors.UnknownBot` — The bot was not found on the list.
 
 **Returns**
 
-`bytes` like object. You must use [`io.BytesIO`](https://docs.python.org/3/library/io.html#io.BytesIO) to send the image through Discord.
+**`blist.models.Reviews`**
+
+|Attribute|Type|Description|
+|---|---|---|
+|reviews|List[`blist.models.Review`]|List of reviews on the bot. Contains the feedback, whether it is recommended and the time|
+
+**`blist.models.Review`**
+
+|Attribute|Type|Description|
+|---|---|---|
+|feedback|`str`|The way the reviewing user felt about the bot|
+|recommended|`bool`|Whether the reviewing user recommends the bot to other users|
+|time|`datetime.datetime`|The timestamp of when the user left the review|
 
 **Return Type**
 
-`bytes`
+`blist.models.Reviews`
 
 ---
 
@@ -273,6 +282,8 @@ Disallows the `blist.Blist` instance from being used to make anymore requests to
 ---
 
 ### `blist.WebhookServer(blist, port=8000)`
+
+*This method has been disabled until further notice.*
 
 Server for receiving upvote events and dispatching them.
 
@@ -294,6 +305,8 @@ Server for receiving upvote events and dispatching them.
 
 ### `await blist.WebhookServer.run()`
 
+*This method has been disabled until further notice.*
+
 *This method is a coroutine.*
 
 Starts the webhook server and allows it to serve requests.
@@ -303,6 +316,8 @@ Starts the webhook server and allows it to serve requests.
 ---
 
 ### `await blist.WebhookServer.close()`
+
+*This method has been disabled until further notice.*
 
 *This method is a coroutine.*
 

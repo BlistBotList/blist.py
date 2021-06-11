@@ -9,13 +9,13 @@ class Blist:
         self.token = token
         self._session = aiohttp.ClientSession(loop=self.bot.loop)
 
-        self.BASE_URL = "https://blist.xyz/api"
+        self.BASE_URL = "https://blist.xyz/api/v2"
 
     async def fetch_bot(self, bot_id: typing.Optional[int] = None) -> models.Bot:
         if bot_id is None:
             bot_id = self.bot.user.id
 
-        response = await self._session.get(f"{self.BASE_URL}/bot/{bot_id}/stats/")
+        response = await self._session.get(f"{self.BASE_URL}/bot/{bot_id}/")
         json = await response.json()
 
         if response.status == 200:
@@ -24,7 +24,7 @@ class Blist:
         if response.status == 404:
             raise errors.UnknownBot()
         else:
-            raise errors.HTTPException(response, json.get("msg"))
+            raise errors.HTTPException(response, json.get("detail"))
 
     async def post_bot_stats(self):
         if self.token is None:
@@ -38,20 +38,21 @@ class Blist:
             "shard_count": self.bot.shard_count or 1
         }
 
-        response = await self._session.post(f"{self.BASE_URL}/bot/{self.bot.user.id}/stats/", headers=headers, json=payload)
-        json = await response.json()
+        response = await self._session.patch(f"{self.BASE_URL}/bot/{self.bot.user.id}/stats/", headers=headers, json=payload)
 
         if response.status == 204:
             return
-
+        
+        json = await response.json()
+        
         if response.status == 400:
-            raise errors.InvalidData(json.get("msg"))
+            raise errors.InvalidData(json.get("detail"))
         elif response.status == 403:
             raise errors.InvalidAuthorization()
         elif response.status == 404:
             raise errors.UnknownBot()
         else:
-            raise errors.HTTPException(response, json.get("msg"))
+            raise errors.HTTPException(response, json.get("detail"))
 
     async def fetch_user_info(self, user_id: int) -> models.User:
         if user_id == self.bot.user.id:
@@ -64,11 +65,11 @@ class Blist:
             return models.User(**json)
 
         if response.status == 400:
-            raise errors.InvalidData(json.get("msg"))
+            raise errors.InvalidData(json.get("detail"))
         elif response.status == 404:
             raise errors.UnknownUser()
         else:
-            raise errors.HTTPException(response, json.get("msg"))
+            raise errors.HTTPException(response, json.get("detail"))
 
     async def fetch_bot_votes(self) -> models.Votes:
         if self.token is None:
@@ -89,18 +90,28 @@ class Blist:
         elif response.status == 404:
             raise errors.UnknownBot()
         else:
-            raise errors.HTTPException(response, json.get("msg"))
+            raise errors.HTTPException(response, json.get("detail"))
 
-    async def fetch_bot_widget(self, bot_id: typing.Optional[int] = None, widget_type: typing.Optional[str] = "normal") -> bytes:
-        response = await self._session.get(f"{self.BASE_URL}/bot/{bot_id}/widget/?type={widget_type}")
+    async def fetch_bot_reviews(self) -> models.Reviews:
+        if self.token is None:
+            raise errors.InvalidAuthorization()
+
+        headers = {
+            "Authorization": self.token
+        }
+
+        response = await self._session.get(f"{self.BASE_URL}/bot/{self.bot.user.id}/reviews/", headers=headers)
+        json = await response.json()
 
         if response.status == 200:
-            return await response.read()
+            return models.Reviews(**json)
 
-        if response.status == 404:
+        if response.status == 403:
+            raise errors.InvalidAuthorization()
+        elif response.status == 404:
             raise errors.UnknownBot()
         else:
-            raise errors.HTTPException(response, None)
+            raise errors.HTTPException(response, json.get("detail"))
 
     async def close(self):
         await self._session.close()
