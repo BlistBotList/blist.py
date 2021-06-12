@@ -5,7 +5,7 @@ with open("PIP_README.md", encoding="utf-8") as pip_readme:
 
 setuptools.setup(
     name="blistpy",
-    version="0.1.2",
+    version="0.1.3",
     author="A Discord User & A Trash Coder",
     description="Python API wrapper for the Blist Discord bot list",
     long_description=description,
@@ -31,5 +31,5 @@ setuptools.setup(
     },
     keywords="discord discordapp bot blist botlist list blistpy",
     install_requires=["aiohttp", "python-dateutil"],
-    python_requires=">=3.5.3"
+    python_requires=">=3.8"
 )
